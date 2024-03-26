@@ -1,0 +1,217 @@
+.main_reviews {
+    padding-top: vw(72);
+    padding-bottom: vw(50);
+    overflow: hidden;
+    @media all and (max-width: 1023px) {
+        padding-top: 56px;
+        padding-bottom: 88px;
+        overflow: unset;
+    }
+    &__top {
+        padding-right: vw(295);
+        @media all and (max-width: 1023px) {
+            padding-right: 0;
+        }
+    }
+    &__title {
+        color: var(--Black, #313132);
+        font-family: 'Gilroy', sans-serif, cursive;
+        font-size: vw(40);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        margin-bottom: vw(8);
+        @media all and (max-width: 1023px) {
+            font-size: 32px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+    }
+    &__subtitle {
+        color: var(--Darck-grey, #666);
+        font-family: 'Gilroy', sans-serif, cursive;
+        font-size: vw(16);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        margin-bottom: vw(32);
+        @media all and (max-width: 1023px) {
+            margin-bottom: 24px;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    &__slider {
+        position: relative;
+    }
+    &__block {
+        border-radius: vw(32);
+        border: 2px solid var(--Secondary, #E4E9F1);
+        background: #FFF;
+        padding: vw(24);
+        &:hover {
+            box-shadow: 0px 30px 30px 0px rgba(40, 43, 57, 0.20);
+        }
+        @media all and (max-width: 1023px) {
+            padding: 24px;
+            border-radius: 32px;
+        }
+    }
+    &__img {
+        font-size: 0;
+        margin-bottom: vw(16);
+        width: vw(48);
+        height: vw(48);
+        border-radius: 50%;
+        flex: 0 0 vw(48);
+        overflow: hidden;
+        @media all and (max-width: 1023px) {
+            flex: 0 0 48px;
+            width: 48px;
+            height: 48px;
+            margin-right: 16px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__info {
+        width: 100%;
+    }
+    &__name {
+        color: var(--Black, #313132);
+        font-size: vw(20);
+        font-style: normal;
+        font-family: 'Gilroy', sans-serif, cursive;
+        font-weight: 700;
+        line-height: 140%;
+        margin-bottom: vw(8);
+        @media all and (max-width: 1023px) {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+    }
+    &__txt {
+        color: var(--Black, #6B6B6B);
+        font-family: 'Gilroy', sans-serif, cursive;
+        font-size: vw(14);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        @media all and (max-width: 1023px) {
+            font-size: 16px;
+            padding-top: 16px;
+        }
+    }
+    .slick-list {
+        @media all and (min-width: 1023px) {
+            margin-left: vw(-8);
+            margin-right: vw(-8);
+            overflow: unset;
+        }
+    }
+    .slick-slide {
+        @media all and (min-width: 1023px) {
+            margin-left: vw(8);
+            margin-right: vw(8);
+        }
+    }
+    .slick-prev, .slick-next {
+        font-size: 0;
+        position: absolute;
+        top: vw(-96);
+        width: vw(64);
+        height: vw(64);
+        border: 1px solid #E1E1E1;
+        cursor: pointer;
+        background-color: #F6F7F9;
+        background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M26.6667 16L5.33342 16M5.33342 16L13.3334 24M5.33342 16L13.3334 8' stroke='%23313132' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: vw(32);
+        border-radius: 12px;
+        border: 1px solid var(--Light-gray-2, #E1E1E1);
+        @media all and (max-width: 1023px) {
+            width: 56px;
+            height: 56px;
+            bottom: -85px;
+            top: unset;
+            background-size: 32px;
+            z-index: 5;
+        }
+        &.slick-disabled {
+            opacity: .5;
+            pointer-events: none;
+        }
+        &:hover {
+            background-color: #E40038;
+            border-color: #E40038;
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M26.6667 16L5.33342 16M5.33342 16L13.3334 24M5.33342 16L13.3334 8' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        }
+    }
+    .slick-prev {
+        right: vw(234);
+        @media all and (max-width: 1023px) {
+            right: unset;
+        }
+    }
+    .slick-next {
+        right: 0;
+        transform: rotate(180deg);
+    }
+    .slick-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        top: vw(-79);
+        z-index: 1;
+        right: vw(80);
+        width: vw(150);
+        @media all and (max-width: 1023px) {
+            justify-content: center;
+            bottom: -62px;
+            width: 100%;
+            top: unset;
+            right: unset;
+        }
+        li {
+            margin: 0;
+            padding: 0;
+            margin-left: vw(16);
+            @media all and (max-width: 1023px) {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+            button {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background: none;
+                font-size: 0;
+                width: vw(10);
+                height: vw(10);
+                cursor: pointer;
+                border-radius: 50%;
+                border: vw(1) solid #666;
+                @media all and (max-width: 1023px) {
+                    width: 10px;
+                    height: 10px;
+                    border: 1px solid #666;
+                }
+            }
+            &.slick-active {
+                button {
+                    background: #E40038;
+                    border-color: #E40038;
+                }
+            }
+        }
+    }
+}

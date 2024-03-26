@@ -1,0 +1,81 @@
+.main_why {
+    background: #1C2A40;
+    padding-top: vw(48);
+    padding-bottom: vw(38);
+    @media all and (max-width: 1023px) {
+        padding-top: 32px;
+    }
+    &__title {
+        color: var(--white, #FFF);
+        font-family: 'Gilroy', sans-serif, cursive;
+        font-size: vw(40);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%;
+        margin-bottom: vw(32);
+        br {
+            display: none;
+            @media all and (max-width: 1023px) {
+                display: block;
+            }
+        }
+        @media all and (max-width: 1023px) {
+            font-size: 32px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+    }
+    &__blocks {
+        display: flex;
+        flex-wrap: wrap;
+        @media all and (max-width: 1023px) {
+            flex-direction: column;
+        }
+    }
+    &__block {
+        width: 25%;
+        text-align: center;
+        @media all and (max-width: 1023px) {
+            width: 100%;
+            padding-bottom: 32px;
+            padding-top: 32px;
+        }
+        &:first-child {
+            text-align: left;
+            @media all and (max-width: 1023px) {
+                text-align: center;
+            }
+        }
+        &:not(:last-child) {
+            border-right: 1px solid #fff;
+            @media all and (max-width: 1023px) {
+                border-right: 0;
+                border-bottom: 1px solid #fff;
+            }
+        }
+        &--title {
+            color: var(--Pink, #FF466A);
+            font-family: 'Gilroy', sans-serif, cursive;
+            font-size: vw(40);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 120%;
+            margin-bottom: vw(8);
+            @media all and (max-width: 1023px) {
+                font-size: 40px;
+                margin-bottom: 8px;
+            }
+        }
+        &--text {
+            color: var(--Light-gray, #EEF1F5);
+            font-family: 'Gilroy', sans-serif, cursive;
+            font-size: vw(24);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            @media all and (max-width: 1023px) {
+                font-size: 24px;
+            }
+        }
+    }
+}

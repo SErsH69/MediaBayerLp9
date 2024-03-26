@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <title>Лендинг 9</title>
+    <link rel="stylesheet" href="css/style.css?_v=20240326155730">
+</head>
+<body>
+    <div class="wrapper" id="app" :class="{isMobile, isTablet}">
+        <header class="header">
+    <div class="header__in center_block">
+        <div class="header__logo">
+            <img src="./img/logo_header.svg" alt="">
+        </div>
+        <div class="header__info" v-if="sizes.window >= 1023">
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="#main_form">Калькулятор</a></li>
+                    <li><a href="#main_why">Преимущества</a></li>
+                    <li><a href="#main_reviews">Отзывы</a></li>
+                    <li><a href="#main_money">Как получить</a></li>
+                    <li><a href="#main_questions">Вопросы и ответы</a></li>
+                </ul>
+            </nav>
+            <button class="header__btn" data-modal-id="1"><span>Войти</span></button>
+        </div>
+        <div class="header__burger" :class="{'isOpened': header.isMobileMenuOpened}" v-if="sizes.window <= 1023">
+            <div class="header__burger--icon" @click.prevent="header.toogleMobileMenu.apply(header)"></div>
+            <div class="header__burger--body">
+                <div class="header__burger--top">
+                    <a href="/" class="header__burger--logo">
+                        <img src="./img/logo_header.svg" alt="">
+                    </a>
+                    <div class="header__burger--close" @click.prevent="header.toogleMobileMenu.apply(header)"></div>
+                </div>
+                <div class="header__burger--item">
+                    <nav class="header__burger--menu" @click="header.toogleMobileMenu.apply(header)">
+                        <ul>
+                            <li><a href="#main_form">Калькулятор</a></li>
+                            <li><a href="#main_why">Преимущества</a></li>
+                            <li><a href="#main_reviews">Отзывы</a></li>
+                            <li><a href="#main_money">Как получить</a></li>
+                            <li><a href="#main_questions">Вопросы и ответы</a></li>
+                        </ul>
+                    </nav>
+                    <button class="header__burger--btn" data-modal-id="1" @click="header.toogleMobileMenu.apply(header)"><span>Войти</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <main class="content">
+            <section id="main_first" class="main_first">
+    <div class="main_first__in center_block">
+        <div class="main_first__l-side">
+            <div class="main_first__title">Бесплатный займ <br>без скрытых услуг и комиссий</div>
+            <div class="main_first__text">Ставка 0% для первого заема</div>
+            <div class="main_first__r-side" v-if="sizes.window <= 1023">
+                <picture><source srcset="./img/bg_first.webp" type="image/webp"><img src="./img/bg_first.png" alt=""></picture>
+            </div>
+            <button class="main_first__btn" data-modal-id="3">Получить деньги</button>
+            <div class="main_first__prefs">
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Доверие</div>
+                    <div class="main_first__pref--text">Одобряем до 90% заявок на займ</div>
+                </div>
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Доступность</div>
+                    <div class="main_first__pref--text">Переводы на любую карту или наличными в офисе</div>
+                </div>
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Надежность</div>
+                    <div class="main_first__pref--text">Без скрытых комиссий и переплат. Мы подробно расписываем все суммы платежей.</div>
+                </div>
+            </div>
+        </div>
+        <div class="main_first__r-side" v-if="sizes.window >= 1023">
+            <picture><source srcset="./img/bg_first.webp" type="image/webp"><img src="./img/bg_first.png" alt=""></picture>
+        </div>
+    </div>
+</section>
+            <section id="main_form" class="main_form">
+    <div class="main_form__in center_block">
+        <div class="main_form__sale">Первый заем под 0%</div>
+        <div class="main_form__block">
+            <div class="main_form__title">Выберите сумму и срок</div>
+            <div class="main_form__slides">
+                <div class="main_form__slide">
+                    <div class="main_form__info">
+                        <span>Сумма займа</span>
+                        <div class="main_form__number">
+                            <div id="slider-range-value"></div>
+                        </div>
+                        <div id="rangeSlider"></div>
+                    </div>
+                    <div class="main_form__values">
+                        <div class="main_form__value">1 000 ₽</div>
+                        <div class="main_form__value">50 000 ₽</div>
+                    </div>
+                </div>
+                <div class="main_form__slide">
+                    <div class="main_form__info">
+                        <span>Срок займа</span>
+                        <div class="main_form__number">
+                        <div id="slider-range-value2"></div>
+                        </div>
+                        <div id="rangeSlider2"></div>
+                    </div>
+                    <div class="main_form__values">
+                        <div class="main_form__value">1 день</div>
+                        <div class="main_form__value">30 день</div>
+                    </div>
+                </div>
+            </div>
+            <button class="main_form__btn" data-modal-id="3">Получить деньги</button>
+        </div>
+    </div>
+</section>
+            <section id="main_money" class="main_money">
+    <div class="main_money__in center_block">
+        <div class="main_money__item">
+            <div class="main_money__l-side">
+                <div class="main_money__title">Как получить деньги?</div>
+                <div class="main_money__subtitle">Выбирайте комфортный для вас способ получения и возврата средств</div>
+                <div class="main_money__blocks">
+                    <div class="main_money__block">
+                        <img src="./img/m1.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m2.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m3.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m4.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m5.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m6.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m7.svg" alt="">
+                    </div>
+                    <div class="main_money__block">
+                        <img src="./img/m8.svg" alt="">
+                    </div>
+                </div>
+                <button class="main_money__btn" data-modal-id="3">Получить деньги</button>
+            </div>
+            <div class="main_money__r-side">
+                <picture><source srcset="./img/money_img.webp" type="image/webp"><img src="./img/money_img.png" alt=""></picture>
+        </div>
+    </div>
+</section>
+            <section id="main_why" class="main_why">
+    <div class="main_why__in center_block">
+        <div class="main_why__title">Почему <br>выбирают нас?</div>
+        <div class="main_why__blocks">
+            <div class="main_why__block">
+                <div class="main_why__block--title">> 19 млрд.</div>
+                <div class="main_why__block--text">выдано клиентам</div>
+            </div>
+            <div class="main_why__block">
+                <div class="main_why__block--title">> 16 тыс.</div>
+                <div class="main_why__block--text">выданых займов</div>
+            </div>
+            <div class="main_why__block">
+                <div class="main_why__block--title">> 75% клиентов</div>
+                <div class="main_why__block--text">берут заём повторно</div>
+            </div>
+            <div class="main_why__block">
+                <div class="main_why__block--title">> 350 000</div>
+                <div class="main_why__block--text">клиентов ежегодно</div>
+            </div>
+        </div>
+    </div>
+</section>
+            <section id="main_reviews" class="main_reviews">
+    <div class="main_reviews__in center_block">
+        <div class="main_reviews__top">
+            <div class="main_reviews__title">Честные отзывы</div>
+            <div class="main_reviews__subtitle">Почитайте отзывы реальных людей, которые воспользовались нашими услугами</div>
+        </div>
+        <div class="main_reviews__slider js_main_rev">
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+            <div class="main_reviews__block">
+                <div class="main_reviews__img">
+                    <picture><source srcset="./img/rev_avatar.webp" type="image/webp"><img src="./img/rev_avatar.png" alt=""></picture>
+                </div>
+                <div class="main_reviews__name">Вадим Сергеевич</div>
+                <div class="main_reviews__txt">Очень хорошая компания.
+                    Выручает всегда. Пользуюсь больше года. Никогда не подводили. Главное
+                    во время все выплачивать. Спасибо
+                    что вы есть!!!</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <section id="main_questions" class="main_questions">
+    <div class="main_questions__in center_block">
+        <div class="main_questions__title">У Вас остались вопросы?</div>
+        <div class="main_questions__items">
+            <div class="main_questions__l-side">
+                    <div class="main_questions__block">
+                        <div class="main_questions__question">Что нужно для подачи заявки?</div>
+                        <div class="main_questions__answer">
+                            <p>Для подачи заявки на займ вам потребуется основная информация о себе, такая как персональные данные, данные о доходах и банковские реквизиты. Некоторые организации могут также запросить дополнительные документы для подтверждения вашей платежеспособности.</p>
+                        </div>
+                    </div>
+                    <div class="main_questions__block">
+                        <div class="main_questions__question">Как долго обрабатывается заявка?</div>
+                        <div class="main_questions__answer">
+                            <p>Обработка заявки на займ обычно занимает от нескольких минут до нескольких часов. Время зависит от конкретной финансовой организации, ее процессов и объема заявок. Некоторые компании предоставляют мгновенные решения, в то время как другие могут потребовать дополнительного времени на рассмотрение.</p>
+                        </div>
+                    </div>
+                    <div class="main_questions__block">
+                        <div class="main_questions__question">Как погасить полученный займ?</div>
+                        <div class="main_questions__answer">
+                            <p>Для погашения займа вам нужно будет следовать инструкциям, предоставленным финансовой организацией. Обычно платежи производятся через банковский перевод, электронные платежные системы или автоматические списания с банковской карты. Важно соблюдать сроки платежей, чтобы избежать штрафов и дополнительных расходов.</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="main_questions__r-side">
+                <div class="main_questions__block">
+                    <div class="main_questions__question">Влияют ли просрочки на одобрение?</div>
+                    <div class="main_questions__answer">
+                        <p>Да, просрочки могут отрицательно повлиять на вашу кредитную историю и в долгосрочной перспективе могут затруднить одобрение будущих заявок на займ. Регулярные и своевременные платежи способствуют улучшению вашей кредитной репутации, тогда как просрочки могут вызвать затруднения с получением кредитов в будущем.</p>
+                    </div>
+                </div>
+                <div class="main_questions__block">
+                    <div class="main_questions__question">Что делать, если не успеваю погасить заем?</div>
+                    <div class="main_questions__answer">
+                        <p>В случае затруднений с возвратом займа, рекомендуется своевременно связаться с финансовой организацией. Некоторые компании предоставляют гибкие условия погашения или рассматривают возможность реструктуризации. Важно предупреждать о проблемах заблаговременно, чтобы избежать негативных последствий для вашей кредитной истории и минимизировать штрафные санкции.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </main>
+        <footer class="footer">
+    <div class="footer__in center_block">
+        <div class="footer__top">
+            <div class="footer__logo">
+                <img src="./img/logo.svg" alt="">
+            </div>
+            <div class="footer__info" v-if="sizes.window <= 1023">
+                <a href="mailto:doc@creditsmile.ru" class="footer__mail">info@zanimali.ru</a>
+                <div class="footer__work">Обработка заявок на заём — 24/7 без выходных</div>
+                <button class="footer__btn" data-modal-id="2">Отписаться от рассылки</button>
+            </div>
+            <nav class="footer__menu">
+                <ul>
+                    <li><a href="#main_form">Калькулятор</a></li>
+                    <li><a href="#main_why">Преимущества</a></li>
+                    <li><a href="#main_reviews">Отзывы</a></li>
+                    <li><a href="#main_money">Как получить</a></li>
+                    <li><a href="#main_questions">Вопросы и ответы</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer__info" v-if="sizes.window >= 1023">
+            <button class="footer__btn" data-modal-id="2">Отписаться от рассылки</button>
+            <a href="mailto:doc@creditsmile.ru" class="footer__mail">info@zanimali.ru</a>
+            <div class="footer__work">Обработка заявок на заём — 24/7 без выходных</div>
+        </div>
+        <div class="footer__text">Деятельность осуществляет Общество с ограниченной ответственностью Микрокредитная компания «Чемергес», которая состоит в государственном реестре микрофинансовых организаций от 20.03.2020 за номером 2003465009573. Является участником СРО Союз Микрофинансовый Альянс «Институты развития малого и среднего бизнеса» дата вступления 18.06.2020 г. Адрес место нахождения СРО: г. Москва, ул. Сущёвская, д. 21 этаж / офис 5/513,514 Выдача микрозаймов онлайн осуществляется 24/7 без перерывов и выходных. ООО МКК «ЧЕМЕРГЕС» ИНН:6685171911, ОГРН: 1206600009153 № 2003465009573 Адрес: 443011, г. Самара ул. Ново-Садовая д. 307А, этаж 6, помещение 5</div>
+        <div class="footer__bottom">
+            <div class="footer__copy">© 2022 ® CreditSmile. Все права защищены.</div>
+            <a href="#" class="footer__link">Пользовательское соглашение и политика конфеденциальности</a>
+        </div>
+    </div>
+</footer>
+        <div class="modal" data-modal="1">
+    <div class="modal__in">
+        <div class="modal__closer"></div>
+        <div class="modal__items">
+            <div class="modal__l-side" v-if="sizes.window >= 1023">
+                <picture><source srcset="./img/modal_img.webp" type="image/webp"><img src="./img/modal_img.png" alt=""></picture>
+            </div>
+            <div class="modal__r-side">
+                <div class="modal__title">Авторизация</div>
+                <div class="modal__text">На указанный номер, будет направлен смс-код для подтверждения</div>
+                <form action="/login" method="POST" class="modal__form">
+                    <div class="modal__form--input">
+                        <input type="tel" id="tel" name="phone" placeholder="Телефон" required>
+                        <label for="tel">Телефон</label>
+                    </div>
+                    <input type="submit" value="Войти">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" data-modal="2">
+    <div class="modal__in">
+        <div class="modal__closer"></div>
+        <div class="modal__items">
+            <div class="modal__l-side" v-if="sizes.window >= 1023">
+                <picture><source srcset="./img/modal_img.webp" type="image/webp"><img src="./img/modal_img.png" alt=""></picture>
+            </div>
+            <div class="modal__r-side">
+                <div class="modal__title">Отписаться от рассылки</div>
+                <div class="modal__text">Для того чтобы отписаться от рассылки <br>введите номер телефона</div>
+                <form action="/unsubcribe" method="POST" class="modal__form">
+                    <div class="modal__form--input">
+                        <input type="tel" id="tel2" name="phone" placeholder="Телефон" required>
+                        <label for="tel2">Телефон</label>
+                    </div>
+                    <input type="submit" value="Отписаться">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal modal_check" data-modal="3">
+    <div class="modal__in">
+        <div class="modal__closer"></div>
+        <div class="modal__items">
+            <div class="modal__l-side" v-if="sizes.window >= 1023">
+                <picture><source srcset="./img/modal_img2.webp" type="image/webp"><img src="./img/modal_img2.png" alt=""></picture>
+            </div>
+            <div class="modal__r-side">
+                <div class="modal__title">Заполните форму</div>
+                <form action="/newform" class="modal__form" method="POST">
+                    <div class="modal__form--input">
+                        <input type="text" id="name1" name="fio" placeholder="Ф.И.О" required>
+                        <label for="name1">Ф.И.О</label>
+                    </div>
+                    <div class="modal__form--input">
+                        <input type="text" id="date1" name="birthday" placeholder="Дата рождения" required>
+                        <label for="date1">Дата рождения</label>
+                    </div>
+                    <div class="modal__form--input">
+                        <input type="text" id="adr1" name="address" placeholder="Адрес проживания" required>
+                        <label for="adr1">Адрес проживания</label>
+                    </div>
+                    <div class="modal__form--input">
+                        <input type="email" id="email1" name="email" placeholder="Почта" required>
+                        <label for="email1">Почта</label>
+                    </div>
+                    <div class="modal__form--input">
+                        <input type="tel" id="tel3" name="phone" placeholder="Телефон" required>
+                        <label for="tel3">Телефон</label>
+                    </div>
+                    <label class="modal__form--custom-checkbox">
+                        <input type="checkbox" name="checkbox1" value="checked">
+                        <span><span>Я даю свое <a href="#" target="_blank"> Согласие на обработку персональных данных</a></span></span>
+                    </label>
+                    <label class="modal__form--custom-checkbox">
+                        <input type="checkbox" name="checkbox2" value="checked">
+                        <span><span>Я даю свое Предварительное <br> <a href="#" target="_blank"> согласие на получение рекламных материалов</a></span></span>
+                    </label>
+                    <input type="submit" value="Получить деньги">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="js/app.min.js?_v=20240326155730"></script>
+</body>
+</html>

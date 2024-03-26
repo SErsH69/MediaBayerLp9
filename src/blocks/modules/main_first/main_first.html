@@ -1,0 +1,29 @@
+<section id="main_first" class="main_first">
+    <div class="main_first__in center_block">
+        <div class="main_first__l-side">
+            <div class="main_first__title">Бесплатный займ <br>без скрытых услуг и комиссий</div>
+            <div class="main_first__text">Ставка 0% для первого заема</div>
+            <div class="main_first__r-side" v-if="sizes.window <= 1023">
+                <img src="./img/bg_first.png" alt="">
+            </div>
+            <button class="main_first__btn" data-modal-id="3">Получить деньги</button>
+            <div class="main_first__prefs">
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Доверие</div>
+                    <div class="main_first__pref--text">Одобряем до 90% заявок на займ</div>
+                </div>
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Доступность</div>
+                    <div class="main_first__pref--text">Переводы на любую карту или наличными в офисе</div>
+                </div>
+                <div class="main_first__pref">
+                    <div class="main_first__pref--title">Надежность</div>
+                    <div class="main_first__pref--text">Без скрытых комиссий и переплат. Мы подробно расписываем все суммы платежей.</div>
+                </div>
+            </div>
+        </div>
+        <div class="main_first__r-side" v-if="sizes.window >= 1023">
+            <img src="./img/bg_first.png" alt="">
+        </div>
+    </div>
+</section>
